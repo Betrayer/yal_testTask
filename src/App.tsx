@@ -1,12 +1,16 @@
 import React, { FC } from 'react';
 
 import UsersList from './components/UsersList/UsersList';
+import Wrapper from './components/Wrapper/Wrapper';
 
 const App: FC = () => {
 	return (
-		<div>
+		<Wrapper>
 			<UsersList />
-		</div>
+		</Wrapper>
+		// <div className='app'>
+		// 	<UsersList />
+		// </div>
 	);
 };
 

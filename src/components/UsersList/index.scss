@@ -1,3 +1,19 @@
+@use '../../styles/colors/colors';
+@use '../../styles/breakpoints/breakpoints';
+
 .usersList {
-    background-color: #974e4e;
+	padding: 24px 12px;
+	background-color: colors.$backgroundMain;
+}
+
+@media (min-width: breakpoints.$layoutBreakpoint) and (orientation: portrait) {
+	.usersList {
+		padding: 32px 45px;
+	}
+}
+
+@media (min-width: breakpoints.$layoutBreakpoint) and (orientation: landscape) {
+	.usersList {
+		padding: 24px 165px;
+	}
 }

@@ -1,0 +1,10 @@
+@use '../colors/colors';
+
+@mixin textMain {
+	display: flex;
+	flex-direction: column;
+	color: colors.$textMain;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 500;
+}

@@ -1,0 +1,138 @@
+@use '../../styles/colors/colors';
+@use '../../styles/breakpoints/breakpoints';
+@use '../../styles/mixins/mixins.scss';
+
+.userCard {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 12px;
+	box-shadow: 0px 4px 12px 0px #0000000d;
+
+	&__avatar {
+		display: flex;
+
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&--image {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 12px;
+			box-shadow: 0px 4px 8px 0px #292d321a;
+		}
+
+		&--name {
+			color: colors.$textMain;
+			font-size: 14px;
+			font-weight: 700;
+			margin-bottom: 2px;
+		}
+
+		&--email {
+			color: colors.$textSecondary;
+			font-size: 14px;
+			font-weight: 400;
+		}
+	}
+
+	&__info {
+		display: flex;
+		justify-content: space-between;
+
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+
+		div:first-child {
+			padding-right: 28px;
+		}
+
+		&--birthDate,
+		&--address,
+		&--password,
+		&--phoneNumber {
+			@include mixins.textMain;
+
+			span {
+				color: colors.$textSecondary;
+				font-weight: 400;
+				margin-bottom: 0px;
+			}
+
+			span:first-child {
+				margin-top: 2px;
+			}
+		}
+
+		&--password,
+		&--phoneNumber {
+			white-space: nowrap;
+			text-align: right;
+		}
+
+		&--birthDate,
+		&--password {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.userCard:not(:last-child) {
+	margin-bottom: 16px;
+}
+
+@media (min-width: breakpoints.$layoutBreakpoint) and (orientation: landscape) {
+	.userCard {
+		display: flex;
+		background-color: transparent;
+		box-shadow: none;
+		padding: 16px 0px;
+		justify-content: space-between;
+
+		&__avatar {
+			align-items: center;
+			margin-right: 40px;
+			min-width: 250px;
+
+			&--image {
+				width: 76px;
+				height: 76px;
+				margin-right: 16px;
+			}
+		}
+
+		&__info {
+			width: 100%;
+			div {
+				flex-direction: row-reverse;
+				align-items: center;
+				justify-content: space-between;
+				width: 50%;
+			}
+
+			div:first-child {
+				flex-direction: row;
+				padding-right: 0px;
+				margin-right: 76px;
+				justify-content: flex-start;
+			}
+
+			&--address {
+				max-width: 320px;
+			}
+
+			&--birthDate,
+			&--password {
+				margin-bottom: 0px;
+			}
+
+			&--birthDate {
+				margin-right: 60px;
+			}
+		}
+	}
+}

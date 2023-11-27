@@ -1,0 +1,16 @@
+@use '../../styles/colors/colors';
+@use '../../styles/breakpoints/breakpoints';
+
+.divider {
+	width: 100%;
+	height: 1px;
+	background-color: colors.$divider;
+	margin-top: 20px;
+	margin-bottom: 16px;
+}
+
+@media (min-width: breakpoints.$layoutBreakpoint) and (orientation: landscape) {
+	.divider {
+		margin-top: 16px;
+	}
+}
