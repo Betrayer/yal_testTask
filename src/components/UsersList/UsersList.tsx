@@ -3,18 +3,19 @@ import './index.scss';
 import React, { FC } from 'react';
 
 import { IUser } from '../../types/users';
-import UsersListItem from '../UsersListItem/UsersListItem';
+import UserCard from '../UserCard/UserCard';
+import { useMedia } from 'react-use';
 import { users } from '../../users/users';
 
 const UsersList: FC = () => {
+	const isPortrait = useMedia('(orientation: portrait)');
+
 	return (
-		<div className='usersList'>
-			<ul>
-				{users.map((item: IUser) => (
-					<UsersListItem key={item.id} item={item} />
-				))}
-			</ul>
-		</div>
+		<ul className='usersList'>
+			{users.map((item: IUser) => (
+				<UserCard key={item.id} item={item} isPortrait={isPortrait} />
+			))}
+		</ul>
 	);
 };
 
